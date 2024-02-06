@@ -2,6 +2,7 @@
 const express = require('express');
 const marketingCloudController = require('../controllers/marketingCloudController');
 const userZendeskController = require('../controllers/zendeskContoller');
+const auth = require('../controllers/authController')
 const router = express.Router();
 
 /**
@@ -10,6 +11,9 @@ const router = express.Router();
  */
 router.post('/process-users', async (req, res) => {
   try {
+    if(!auth.apiAuth(req.body)){
+      return res.status(401).send('Invalid credentials');
+    }
     res.status(200).send('Processing started. Check logs for progress.');
 
     // Inicia o processamento em segundo plano
@@ -28,6 +32,9 @@ router.post('/process-users', async (req, res) => {
  */
 router.post('/search-users', async (req, res) => {
   try {
+    if(!auth.apiAuth(req.body)){
+      return res.status(401).send('Invalid credentials');
+    }
     res.status(200).send('Processing started. Check logs for progress.');
 
     // Inicia a busca em segundo plano
