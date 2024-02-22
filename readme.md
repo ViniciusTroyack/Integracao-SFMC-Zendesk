@@ -1,4 +1,4 @@
-# Instegracao Marketing Cloud Zendek
+# Integracao Marketing Cloud Zendek
 
 ## Descrição
 Esta aplicação realiza integrações entre a Marketing Cloud e o Zendesk, processando dados e atualizando registros.
